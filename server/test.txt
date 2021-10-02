@@ -1,0 +1,10 @@
+users:
+    name
+    seat
+    position
+log:
+    content
+    user
+    timestamp
+    imageref[]
+    tags{}
