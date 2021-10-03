@@ -22,7 +22,7 @@
     </div>
   </nav>
   <div class="row" style="min-height: 500px; max-height: 500px; max-width: 1935px">
-    <div class="col-3 bg-info border-right border-dark" style="padding-top: 15px; min-width: 480px; max-width: 450px">
+    <div class="col-3 bg-info border-right border-dark" style="padding-top: 15px; min-width: 480px; max-width: 480px">
       <div class="container">
         <h5>Filters</h5>
         <nav>
@@ -33,12 +33,12 @@
           </div>
         </nav>
         <div class="tab-content overflow-auto" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 368px">
+          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 406px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 368px">
+          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 406px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
@@ -48,7 +48,13 @@
     </div>
     <div class="col container" style="padding-top: 15px; max-width: 1485px">
       <h5>Console Log</h5>
-      <div class="overflow-auto" id="consoleTable" style="max-height: 500px">
+      <div style="font-weight: 700; min-height: 50px" class="border-bottom border-top d-flex">
+        <span class="p-2">Timestamp</span>
+        <span class="p-2" style="position: absolute; left: 226px">User</span>
+        <span class="p-2" style="position: absolute; left: 370px">Categories</span>
+        <span class="p-2" style="position: absolute; left: 650px">Content</span>
+      </div>
+      <div class="overflow-auto" id="consoleTable" style="max-height: 400px">
         <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 700px">
           <span class="sr-only">Loading...</span>
         </div>
@@ -58,7 +64,7 @@
 
   <div class="row" style="max-width: 1935px;">
     <div class="col" style="max-width: 450px;">
-      <iframe id="streamFrame" width="480" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>
+      <iframe id="streamFrame" width="420" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>
     </div>
     <div class="col" style="max-width: 1450px;">
       <div id="console-form" >

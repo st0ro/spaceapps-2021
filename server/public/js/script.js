@@ -127,21 +127,13 @@ function fillConsoleLogs() {
             ++i;
         }
     }
-    let innerhtml = `<table class="table table-hover">
+    let innerhtml = `<table class="table table-hover" id="thetable">
           <colgroup>
             <col span="1" style="width: 15%;">
             <col span="1" style="width: 10%;">
             <col span="1" style="width: 20%;">
             <col span="1" style="width: 55%;">
           </colgroup>
-          <thead>
-          <tr>
-            <th scope="col">Timestamp</th>
-            <th scope="col">User</th>
-            <th scope="col">Categories</th>
-            <th scope="col">Content</th>
-          </tr>
-          </thead>
           <tbody>`;
     newLogs.forEach(function (element) {
         innerhtml += `<tr>
@@ -160,6 +152,9 @@ function fillConsoleLogs() {
 
 
     document.getElementById("consoleTable").innerHTML = innerhtml
+    let table = document.getElementById('thetable')
+    let lastRow = table.rows[table.rows.length - 1]
+
 }
 
 setTimeout(function () {
