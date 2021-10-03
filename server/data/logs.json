@@ -1,1 +1,14 @@
-{}
+[
+  {
+    "user": "Bob",
+    "content": "heeheexd",
+    "timestamp": "2021-10-02 10:50:10",
+    "tags": ["space", "asteroid"]
+  },
+  {
+    "user": "Joe",
+    "content": "ggez",
+    "timestamp": "2021-10-01 15:03:22",
+    "tags": ["space", "stuff"]
+  }
+]

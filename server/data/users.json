@@ -1,1 +1,12 @@
-{}
+[
+  {
+    "name": "Bob",
+    "seat": "e33",
+    "position": "bossman"
+  },
+  {
+    "name": "Joe",
+    "seat": "s37",
+    "position": "smol"
+  }
+]

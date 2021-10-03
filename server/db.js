@@ -16,12 +16,8 @@ exports.addUser = function(name, seat, position) {
     })
 }
 
-exports.getUser = function(name) {
-    for (const user in users) {
-        if (user.name === name)
-            return user
-    }
-    return null
+exports.getUsers = function() {
+    return JSON.stringify(users)
 }
 
 exports.addLog = function(user, content, timestamp, tags) {
@@ -38,23 +34,6 @@ exports.addLog = function(user, content, timestamp, tags) {
     })
 }
 
-exports.getLog = function(user) {
-    for (const log in logs) {
-        if (log.user === user)
-            return log
-    }
-    return null
-}
-
-exports.getLog = function(tags) {
-    let logs = []
-    for (const log in logs) {
-        for (const logTag in log.tags) {
-            for (const tag in tags) {
-                if (logTag === tag)
-                    logs.push(log)
-            }
-        }
-    }
-    return logs
+exports.getLogs = function() {
+    return JSON.stringify(logs)
 }
