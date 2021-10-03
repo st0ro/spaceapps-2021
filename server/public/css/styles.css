@@ -1,9 +1,7 @@
 body {
-    background-color: #ddd;
-    font-size: 20px;
+    background-color: #272f3d;
+    color: white;
 }
-
-.btn {
-    font-size: inherit;
-    margin-bottom: 10px;
+.dark-bar{
+    background-color: #181e26;
 }
