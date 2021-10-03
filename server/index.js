@@ -7,12 +7,10 @@ const port = 25565
 
 app.use(express.static("public"));
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.post('/adduser', (req, res)=>{
     db.addUser(req.body.name, req.body.seat, req.body.position)
-    res.send("OK")
 })
 
 app.get('/getusers', (req, res)=>{
@@ -21,7 +19,6 @@ app.get('/getusers', (req, res)=>{
 
 app.post('/addlog', (req, res)=>{
     db.addLog(req.body.user, req.body.content, req.body.tags)
-    res.send("OK")
 })
 
 app.get('/getlogs', (req, res)=>{
@@ -30,7 +27,6 @@ app.get('/getlogs', (req, res)=>{
 
 app.post('/addtag', (req, res)=>{
     db.addTag(req.body.tag)
-    res.send("OK")
 })
 
 app.get('/gettags', (req, res)=>{
