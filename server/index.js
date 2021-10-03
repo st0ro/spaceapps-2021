@@ -18,7 +18,7 @@ app.get('/getusers', (req, res)=>{
 })
 
 app.post('/addlog', (req, res)=>{
-    db.addLog(req.body.user, req.body.content, req.body.timestamp, req.body.tags)
+    db.addLog(req.body.user, req.body.content, req.body.tags)
 })
 
 app.get('/getlogs', (req, res)=>{

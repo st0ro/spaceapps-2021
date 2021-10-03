@@ -21,7 +21,16 @@ exports.getUsers = function() {
     return JSON.stringify(users)
 }
 
-exports.addLog = function(user, content, timestamp, newTags) {
+exports.addLog = function(user, content, newTags) {
+    let dateOb = new Date()
+    let date = String(("0" + dateOb.getDate())).slice(-2)
+    let month = String(("0" + (dateOb.getMonth() + 1))).slice(-2)
+    let year = String(dateOb.getFullYear())
+    let hours = String(dateOb.getHours())
+    let minutes = String(dateOb.getMinutes())
+    let seconds = String(dateOb.getSeconds())
+    let timestamp = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
+
     logs.push({
         user: user,
         content: content,
