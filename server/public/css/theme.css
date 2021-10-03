@@ -7130,3 +7130,7 @@ a.text-dark:hover, a.text-dark:focus {
 .sp-tag:hover{
   background-color: #1f2630 !important;
 }
+
+input::placeholder{
+  color: #ffffff !important;
+}

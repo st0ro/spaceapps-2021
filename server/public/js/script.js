@@ -86,7 +86,7 @@ function loadLogs() {
         type: "GET",
         success: function (res) {
             logs = JSON.parse(res)
-            fillConsoleLogs(logs)
+            fillConsoleLogs()
         }
     })
 }
@@ -117,7 +117,7 @@ function updateTagFilter(event) {
     fillConsoleLogs()
 }
 
-function fillConsoleLogs(logs) {
+function fillConsoleLogs() {
     let newLogs = JSON.parse(JSON.stringify(logs))
     let i = 0;
     while(i < newLogs.length){
@@ -165,5 +165,5 @@ setTimeout(function () {
     loadUsers()
     loadTags()
     loadLogs()
-    setInterval(loadUsers, 1000)
+    setInterval(loadLogs, 1000)
 }, 200)
