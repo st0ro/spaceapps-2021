@@ -13,7 +13,7 @@ app.post('/adduser', (req, res)=>{
     db.addUser(req.body.name, req.body.seat, req.body.position)
 })
 
-app.get('/getuser/', (req, res)=>{
+app.get('/getusers/', (req, res)=>{
     res.send(db.getUsers())
 })
 
