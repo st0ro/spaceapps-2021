@@ -2,6 +2,7 @@ const fs = require('fs')
 
 const users = require("./data/users.json")
 const logs = require("./data/logs.json")
+const tags = require("./data/tags.json")
 
 exports.addUser = function(name, seat, position) {
     users.push({
@@ -20,12 +21,15 @@ exports.getUsers = function() {
     return JSON.stringify(users)
 }
 
-exports.addLog = function(user, content, timestamp, tags) {
+exports.addLog = function(user, content, timestamp, newTags) {
     logs.push({
         user: user,
         content: content,
         timestamp: timestamp,
-        tags: tags
+        tags: newTags
+    })
+    newTags.forEach(function(tag) {
+        exports.addTag(tag)
     })
     fs.writeFile("data/logs.json", JSON.stringify(logs), (err) => {
         if (err) {
@@ -36,4 +40,24 @@ exports.addLog = function(user, content, timestamp, tags) {
 
 exports.getLogs = function() {
     return JSON.stringify(logs)
+}
+
+exports.addTag = function (newTag) {
+    let found = false
+    tags.forEach(function(tag) {
+        if (tag === newTag) {
+            found = true
+        }
+    })
+    if (!found)
+        tags.push(newTag)
+    fs.writeFile("data/tags.json", JSON.stringify(tags), (err) => {
+        if (err) {
+            console.error(err)
+        }
+    })
+}
+
+exports.getTags = function() {
+    return JSON.stringify(tags)
 }

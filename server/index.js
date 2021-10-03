@@ -25,6 +25,13 @@ app.get('/getlogs', (req, res)=>{
     res.send(db.getLogs())
 })
 
+app.post('/addtag', (req, res)=>{
+    db.addTag(req.body.tag)
+})
+
+app.get('/gettags', (req, res)=>{
+    res.send(db.getTags())
+})
 
 app.listen(port, () => {
     console.log(`Spaceapps 2021 listening at port ${port}`)
