@@ -26,9 +26,9 @@ exports.addLog = function(user, content, newTags) {
     let date = String(("0" + dateOb.getDate())).slice(-2)
     let month = String(("0" + (dateOb.getMonth() + 1))).slice(-2)
     let year = String(dateOb.getFullYear())
-    let hours = String(dateOb.getHours())
-    let minutes = String(dateOb.getMinutes())
-    let seconds = String(dateOb.getSeconds())
+    let hours = String(("0" + dateOb.getHours())).slice(-2)
+    let minutes = String(("0" + dateOb.getMinutes())).slice(-2)
+    let seconds = String(("0" + dateOb.getSeconds())).slice(-2)
     let timestamp = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
 
     logs.push({

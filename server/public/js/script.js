@@ -24,7 +24,7 @@ function loadUsers() {
           </thead>
           <tbody>`;
             json.forEach(function (element) {
-                innerhtml += `<tr>
+                innerhtml += `<tr id="filterUser${element.name.trim()}">
             <td><input type="checkbox" class="selectUserInput" data-user="${element.name}" checked></input></td>
             <td>${element.name}</td>
             <td>${element.seat}</td>
@@ -63,7 +63,7 @@ function loadTags() {
           </thead>
           <tbody>`;
             json.forEach(function (element) {
-                innerhtml += `<tr>
+                innerhtml += `<tr id="filterTag${element.trim()}">
             <td><input type="checkbox" class="selectTagInput" data-tag="${element}" checked></input></td>
             <td>${element.charAt(0).toUpperCase() + element.slice(1)}</td>
           </tr>`
@@ -159,6 +159,45 @@ function fillConsoleLogs() {
         </table>`
 
     document.getElementById("consoleTable").innerHTML = innerhtml
+}
+
+document.getElementById("search-bar").addEventListener("input", search, false);
+
+function search(event) {
+    let userTabClass = document.getElementById("nav-user-tab").className
+    let categoryTabClass = document.getElementById("nav-group-tab").className
+    let searchStr = event.target.value
+
+    var targets
+    if (userTabClass === "nav-link active")
+        targets = document.getElementsByClassName("selectUserInput")
+    else if (categoryTabClass === "nav-link active")
+        targets = document.getElementsByClassName("selectTagInput")
+    if (searchStr === null) {
+        Array.from(targets).forEach(target => {
+            document.getElementById("filterUser" + target.dataset.user.trim()).style.display = ''
+        })
+    }
+    else {
+        Array.from(targets).forEach(target => {
+            let data
+            let id
+            if (userTabClass === "nav-link active") {
+                data = target.dataset.user
+                id = "filterUser"
+            }
+            else if (categoryTabClass === "nav-link active") {
+                data = target.dataset.tag
+                id = "filterTag"
+            }
+            if (!data.toLowerCase().includes(searchStr.toLowerCase())) {
+                let hiddenTarget = document.getElementById(id + data.trim())
+                hiddenTarget.style.display = 'none'
+            }
+            else
+                document.getElementById(id + data.trim()).style.display = ''
+        })
+    }
 }
 
 setTimeout(function () {
