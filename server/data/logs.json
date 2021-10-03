@@ -1,14 +1,1 @@
-[
-  {
-    "user": "Roy D",
-    "content": "Bolt 1 released, 12.5 turns to release",
-    "timestamp": "2021-10-04 11:56:10",
-    "tags": ["landing gear", "rover"]
-  },
-  {
-    "user": "Manchu Y",
-    "content": "Critical loss of signal to intermediary satellite, connection regained after 5.05 seconds",
-    "timestamp": "2021-10-04 11:57:22",
-    "tags": ["communications", "satellite"]
-  }
-]
+[{"user":"Roy D","content":"Bolt 1 released, 12.5 turns to release","timestamp":"2021-10-03 11:56:10","tags":["landing gear","rover"]},{"user":"Manchu Y","content":"Critical loss of signal to intermediary satellite, connection regained after 5.05 seconds","timestamp":"2021-10-03 11:57:22","tags":["communications","satellite"]},{"user":"Julia M","content":"Flight controller 3 reaching 75.6 degrees (warning zone)","timestamp":"2021-10-03 14:48:18","tags":["flight controller","warning"]}]
