@@ -5,6 +5,12 @@ $.ajax({
         var json = JSON.parse(res)
         var innerhtml = `<table class="table table-hover">
           <thead class="thead-dark">
+          <colgroup>
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 30%;">
+          </colgroup>
           <tr>
             <th scope="col">Select</th>
             <th scope="col">Name</th>
@@ -15,7 +21,7 @@ $.ajax({
           <tbody>`;
         json.forEach(function (element){
             innerhtml += `<tr>
-            <th scope="row"><input type="checkbox" class="selectInput" linked-user="${element.name}"></input></th>
+            <td><input type="checkbox" class="selectUserInput" linked-user="${element.name}"></input></td>
             <td>${element.name}</td>
             <td>${element.seat}</td>
             <td>${element.position}</td>
@@ -25,6 +31,36 @@ $.ajax({
         </table>`
 
         document.getElementById("nav-user").innerHTML = innerhtml
+    }
+})
+
+$.ajax({
+    url: "/gettags",
+    type: "GET",
+    success: function (res){
+        var json = JSON.parse(res)
+        var innerhtml = `<table class="table table-hover">
+          <thead class="thead-dark">
+          <colgroup>
+           <col span="1" style="width: 20%;">
+           <col span="1" style="width: 80%;">
+          </colgroup>
+          <tr>
+            <th scope="col">Select</th>
+            <th scope="col">Category</th>
+          </tr>
+          </thead>
+          <tbody>`;
+        json.forEach(function (element){
+            innerhtml += `<tr>
+            <td><input type="checkbox" class="selectTagInput" linked-tag="${element}"></input></td>
+            <td>${element.charAt(0).toUpperCase() + element.slice(1)}</td>
+          </tr>`
+        })
+        innerhtml +=`</tbody>
+        </table>`
+
+        document.getElementById("nav-group").innerHTML = innerhtml
     }
 })
 
