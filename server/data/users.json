@@ -1,12 +1,42 @@
 [
   {
-    "name": "Bob",
-    "seat": "e33",
-    "position": "bossman"
+    "name": "Roy D",
+    "seat": "J34",
+    "position": "Thermal Systems Lead"
   },
   {
-    "name": "Joe",
-    "seat": "s37",
-    "position": "smol"
+    "name": "Julia M",
+    "seat": "M40",
+    "position": "Electrical Power Engineer"
+  },
+  {
+    "name": "Niklas B",
+    "seat": "Z60",
+    "position": "Quality Assurance Engineer"
+  },
+  {
+    "name": "Jeffrey T",
+    "seat": "P22",
+    "position": "Liquid Propulsion Lead"
+  },
+  {
+    "name": "Jasper W",
+    "seat": "A88",
+    "position": "Data Systems Engineer"
+  },
+  {
+    "name": "Trần T",
+    "seat": "V99",
+    "position": "Propulsion Flow Engineer"
+  },
+  {
+    "name": "Manchu Y",
+    "seat": "S04",
+    "position": "Senior Technology Leader"
+  },
+  {
+    "name": "Nathan L",
+    "seat": "R22",
+    "position": "Aerothermodynamics Engineer"
   }
 ]
