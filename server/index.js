@@ -20,6 +20,7 @@ app.get('/getusers', (req, res)=>{
 })
 
 app.post('/addlog', (req, res)=>{
+    console.log(req.body);
     db.addLog(req.body.user, req.body.content, req.body.tags)
     res.send("OK")
 })

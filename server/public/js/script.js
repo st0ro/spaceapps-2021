@@ -174,9 +174,13 @@ function submitlog()
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/addlog", true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({
+  var payload = JSON.stringify({
     content : document.getElementById("content-input").value,
-    tags : document.getElementById("tag-input").value,
+    tags : document.getElementById("tag-input").value.split(","),
     user : "Bob"
-  }))
+  })
+  document.getElementById("tag-input").value = "";
+  document.getElementById("content-input").value = "";
+  console.log(payload);
+  xhr.send(payload)
 }
