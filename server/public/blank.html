@@ -55,7 +55,25 @@
       </div>
     </div>
   </div>
-  <iframe id="streamFrame" width="480" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>
+
+  <div class="row" style="max-width: 1935px;">
+    <div class="col" style="max-width: 450px;">
+      <iframe id="streamFrame" width="480" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>
+    </div>
+    <div class="col" style="max-width: 1450px;">
+      <div id="console-form" >
+        <form enctype="multipart/form-data" id = "form">
+            <label for="content">Content:</label><br>
+            <textarea id="content-input" class="bg-secondary" cols = "40" rows = "2" style="border: none; resize: none; width: 100%; color:white;"></textarea><br>
+            <label for="tags">Tags:</label><br>
+            <input type="text" class="bg-secondary" id="tag-input" name="tags" style="color: white;"><br><br>
+            <input type="file" name="theFile" id="file" multiple/>
+            <input type="submit" class="btn btn-secondary" value="Submit Log" id="submitbutton" onclick="submitlog()" />
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>

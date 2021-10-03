@@ -158,6 +158,7 @@ function fillConsoleLogs() {
     innerhtml += `</tbody>
         </table>`
 
+
     document.getElementById("consoleTable").innerHTML = innerhtml
 }
 
@@ -167,3 +168,15 @@ setTimeout(function () {
     loadLogs()
     setInterval(loadLogs, 1000)
 }, 200)
+
+function submitlog()
+{
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/addlog", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    content : document.getElementById("content-input").value,
+    tags : document.getElementById("tag-input").value,
+    user : "Bob"
+  }))
+}
