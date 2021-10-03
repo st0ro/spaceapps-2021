@@ -35,9 +35,9 @@ exports.addLog = function(user, content, newTags) {
         user: user,
         content: content,
         timestamp: timestamp,
-        tags: newTags
+        tags: JSON.parse(newTags)
     })
-    newTags.forEach(function(tag) {
+    JSON.parse(newTags).forEach(function(tag) {
         exports.addTag(tag)
     })
     fs.writeFile("data/logs.json", JSON.stringify(logs), (err) => {
