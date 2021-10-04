@@ -59,7 +59,7 @@ exports.addTag = function (newTag) {
         }
     })
     if (!found)
-        tags.push(newTag)
+        tags.push(newTag.toLowerCase())
     fs.writeFile("data/tags.json", JSON.stringify(tags), (err) => {
         if (err) {
             console.error(err)

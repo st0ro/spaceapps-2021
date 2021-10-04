@@ -1,4 +1,4 @@
-var logs;
+var logs, logCount = 0
 var blacklistUsers = [], whitelistTags = []
 
 function loadUsers() {
@@ -86,7 +86,11 @@ function loadLogs() {
         type: "GET",
         success: function (res) {
             logs = JSON.parse(res)
-            fillConsoleLogs()
+            let newLogs = JSON.parse(JSON.stringify(logs))
+            if(newLogs.length !== logCount){
+                fillConsoleLogs()
+            }
+            logCount = newLogs.length
         }
     })
 }
@@ -118,11 +122,10 @@ function updateTagFilter(event) {
 }
 
 function fillConsoleLogs() {
-    let newLogs = JSON.parse(JSON.stringify(logs))
     let i = 0;
-    while(i < newLogs.length){
-        if(blacklistUsers.includes(newLogs[i].user) || !newLogs[i].tags.some(r=>whitelistTags.includes(r))){
-            newLogs.splice(i, 1);
+    while(i < logs.length){
+        if(blacklistUsers.includes(logs[i].user) || !logs[i].tags.some(r=>whitelistTags.includes(r))){
+            logs.splice(i, 1);
         } else {
             ++i;
         }
@@ -132,11 +135,12 @@ function fillConsoleLogs() {
             <col span="1" style="width: 15%;">
             <col span="1" style="width: 10%;">
             <col span="1" style="width: 20%;">
-            <col span="1" style="width: 55%;">
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 5%;">
           </colgroup>
           <tbody>`;
-    newLogs.forEach(function (element) {
-        innerhtml += `<tr>
+    logs.forEach(function (element) {
+        innerhtml += `<tr id="log${element.user.replace(/\s+/g, '')+element.timestamp.replace(/\W/g, '')}">
             <td>${element.timestamp}</td>
             <td>${element.user}</td>
             <td>`
@@ -144,8 +148,13 @@ function fillConsoleLogs() {
             innerhtml += `<span class="p-2 bg-secondary sp-tag">${tag.charAt(0).toUpperCase() + tag.slice(1)}</span>`
         })
         innerhtml += `</td>
-            <td>${element.content}</td>
-          </tr>`
+            <td>` + parseContent(element.content) + `</td>
+            <td style="padding-top: 5px;">
+                <button class="btn" style="height: 16px; padding: 0px" onclick="tagForm('${element.user}', '${element.timestamp}')">
+                    <i class="bi-box-arrow-in-up" style="font-size: 20px"></i>
+                </button>
+            </td>
+        </tr>`
     })
     innerhtml += `</tbody>
         </table>`
@@ -217,4 +226,34 @@ function submitlog()
   document.getElementById("content-input").value = "";
   console.log(payload);
   xhr.send(payload)
+}
+
+function parseContent(content){
+    let words = content.match(/@\w+#\d+/g)
+    if(words !== null) {
+        words.forEach(word => {
+            let data = word.split(/@|#/g)
+            content = content.replace(word, `<a href="#log${data[1]+data[2]}" onclick="highlightById('log${data[1]+data[2]}')">#${data[2]}</a>`)
+        })
+    }
+
+    content = content.replace("critical", "<span style='color: red; font-weight: bold'>critical</span>")
+    content = content.replace("Critical", "<span style='color: red; font-weight: bold'>Critical</span>")
+
+    content = content.replace("warning", "<span style='color: gold; font-weight: bold'>warning</span>")
+    content = content.replace("Warning", "<span style='color: gold; font-weight: bold'>Warning</span>")
+    return content
+}
+
+function highlightById(id){
+    $("#"+id).addClass("highlight-fade")
+    setTimeout(()=> {
+        $("#" + id).removeClass("highlight-fade")
+    }, 1000)
+}
+
+function tagForm(user, time){
+    console.log(user, time)
+    var input = $("#content-input")
+    input.val( input.val() + `@${user.replace(/\s+/g, '')}#${time.replace(/\W/g, '')}` )
 }
