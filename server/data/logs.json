@@ -59,5 +59,112 @@
     "tags": [
       "spacecraft"
     ]
+  },
+  {
+    "user": "James Z",
+    "content": "Radio connection restored after 10.32 seconds @NiklasB#20211003151126",
+    "timestamp": "2021-10-03 21:36:16",
+    "tags": [
+      "communications"
+    ]
+  },
+  {
+    "user": "Manchu Y",
+    "content": "Pizza is available in the staffroom for all groundstation employees",
+    "timestamp": "2021-10-03 21:59:03",
+    "tags": [
+      "communications",
+      "critical"
+    ]
+  },
+  {
+    "user": "Trần T",
+    "content": "The landing craft is jettisoned.",
+    "timestamp": "2021-10-03 21:59:55",
+    "tags": [
+      "spacecraft"
+    ]
+  },
+  {
+    "user": "Julia M",
+    "content": "Collins fires the command ship's rockets and moves about two miles away.\n",
+    "timestamp": "2021-10-03 22:00:19",
+    "tags": [
+      "spacecraft"
+    ]
+  },
+  {
+    "user": "Jeffrey T",
+    "content": "Warning: oxygen-hydrogen mix in propulsion chamber 3 engine 2 reaching low levels (30% mix)",
+    "timestamp": "2021-10-03 22:05:02",
+    "tags": [
+      "warning"
+    ]
+  },
+  {
+    "user": "Nathan L",
+    "content": "Midcourse correction is made with a three-second burn",
+    "timestamp": "2021-10-03 22:10:08",
+    "tags": [
+      "flight controller"
+    ]
+  },
+  {
+    "user": "Trần T",
+    "content": "@ManchuY#20211003215903 Thanks, I'll be heading down now. I hope there's still some pepperoni left",
+    "timestamp": "2021-10-03 22:12:14",
+    "tags": [
+      "communications",
+      "critical"
+    ]
+  },
+  {
+    "user": "Niklas B",
+    "content": "The landing craft is separated from the command module",
+    "timestamp": "2021-10-03 22:15:43",
+    "tags": [
+      "landing gear"
+    ]
+  },
+  {
+    "user": "Niklas B",
+    "content": "Warning - landing craft is on its way down to the lunar surface",
+    "timestamp": "2021-10-03 22:16:28",
+    "tags": [
+      "landing gear"
+    ]
+  },
+  {
+    "user": "Jasper W",
+    "content": "Spacecraft splashes down 825 nautical miles southwest of Honolulu",
+    "timestamp": "2021-10-03 22:18:10",
+    "tags": [
+      "spacecraft"
+    ]
+  },
+  {
+    "user": "Jasper W",
+    "content": "Preparing the ship for launching",
+    "timestamp": "2021-10-03 22:19:14",
+    "tags": [
+      "spacecraft",
+      "launch"
+    ]
+  },
+  {
+    "user": "Manchu Y",
+    "content": "Making a preliminary collection of soil samples close to the landing craft",
+    "timestamp": "2021-10-03 22:20:36",
+    "tags": [
+      "communications"
+    ]
+  },
+  {
+    "user": "Nathan L",
+    "content": "23 minutes away from the LOI (Lunar Orbit Insertion) burn",
+    "timestamp": "2021-10-03 22:21:51",
+    "tags": [
+      "communications"
+    ]
   }
 ]

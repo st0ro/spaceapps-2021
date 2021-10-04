@@ -2,6 +2,8 @@ var logs, logCount = 0;
 var blacklistUsers = [], whitelistTags = [];
 var tags = [];
 
+var userName = "James Z"
+
 function loadUsers() {
     $.ajax({
         url: "/getusers",
@@ -124,6 +126,7 @@ function updateTagFilter(event) {
 }
 
 function fillConsoleLogs() {
+    console.log(logs.length)
     let i = 0;
     while(i < logs.length){
         if(blacklistUsers.includes(logs[i].user) || !logs[i].tags.some(r=>whitelistTags.includes(r))){
@@ -165,7 +168,7 @@ function fillConsoleLogs() {
     document.getElementById("consoleTable").innerHTML = innerhtml
     let table = document.getElementById('thetable')
     let lastRow = table.rows[table.rows.length - 1]
-
+    lastRow.scrollIntoView()
 }
 
 document.getElementById("search-bar").addEventListener("input", search, false);
@@ -220,16 +223,16 @@ function submitlog()
   xhr.open("POST", "/addlog", true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   var content = document.getElementById("content-input").value;
-  var tags = document.getElementById("tag-input").value.split(",");
+  var tags = [document.getElementById("tag-select").value.toLowerCase()];
   if(content === "" || (tags.length===1&& tags[0]==="")){
       alert('Please fill out all fields');
   }
   var payload = JSON.stringify({
     content : content,
     tags : tags,
-    user : "Bob"
+    user : userName
   })
-  document.getElementById("tag-input").value = "";
+  //document.getElementById("tag-select").value = "";
   document.getElementById("content-input").value = "";
   console.log(payload);
   xhr.send(payload)

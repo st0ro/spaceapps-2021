@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar bg-secondary border-bottom border-dark">
+  <nav class="navbar bg-secondary border-bottom border-dark" style="height: 86px">
     <div class="container-fluid">
       <div class="row">
         <div class="col">
@@ -20,13 +20,12 @@
         <div class="col my-auto">
           <h1 class="text-primary">Orbit</h1>
         </div>
-        <div class="col-5 my-auto">
-          <h1 class="text-primary" style="font-size: 24px">Hello Bob</h1>
-        </div>
+        <h4 class="text-primary" style="font-size: 24px; position: fixed; top: 30px; right: 50px">Hello James Z</h4>
+        <i class="bi-person" style="font-size: 32px; position: fixed; top: 20px; right: 200px"></i>
       </div>
     </div>
   </nav>
-  <div class="row" style="min-height: 556px; max-width: 1935px">
+  <div class="row" style="min-height: 607px; max-width: 1935px">
     <div class="col-3 bg-info border-right border-dark" style="padding-top: 15px; min-width: 480px; max-width: 480px">
       <div class="container">
         <h5>Filters</h5>
@@ -38,12 +37,12 @@
           </div>
         </nav>
         <div class="tab-content overflow-auto" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 440px">
+          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 500px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 391px">
+          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 500px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
@@ -51,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="col container" style="padding-top: 15px; max-width: 1485px">
+    <div class="col container" style="padding-top: 15px; max-width: 1485px; max-height: 607px">
       <h5>Console Log</h5>
       <div style="font-weight: 700; min-height: 50px" class="border-bottom border-top d-flex">
         <span class="p-2">Timestamp</span>
@@ -59,7 +58,7 @@
         <span class="p-2" style="position: absolute; left: 370px">Categories</span>
         <span class="p-2" style="position: absolute; left: 650px">Content</span>
       </div>
-      <div class="overflow-auto" id="consoleTable" style="max-height: 385px">
+      <div class="overflow-auto" id="consoleTable" style="max-height: 700px">
         <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 700px">
           <span class="sr-only">Loading...</span>
         </div>
