@@ -1,5 +1,6 @@
 var logs;
-var blacklistUsers = [], whitelistTags = []
+var blacklistUsers = [], whitelistTags = [];
+var tags = [];
 
 function loadUsers() {
     $.ajax({
@@ -48,7 +49,7 @@ function loadTags() {
         url: "/gettags",
         type: "GET",
         success: function (res) {
-            var json = JSON.parse(res)
+            tags = JSON.parse(res)
             whitelistTags = JSON.parse(res)
             var innerhtml = `<table class="table table-hover">
           <colgroup>
@@ -62,7 +63,7 @@ function loadTags() {
           </tr>
           </thead>
           <tbody>`;
-            json.forEach(function (element) {
+            tags.forEach(function (element) {
                 innerhtml += `<tr id="filterTag${element.trim()}">
             <td><input type="checkbox" class="selectTagInput" data-tag="${element}" checked></input></td>
             <td>${element.charAt(0).toUpperCase() + element.slice(1)}</td>
@@ -72,10 +73,11 @@ function loadTags() {
         </table>`
 
             document.getElementById("nav-group").innerHTML = innerhtml
-            let tags = document.getElementsByClassName("selectTagInput")
-            Array.from(tags).forEach(element => {
+            let tagInput = document.getElementsByClassName("selectTagInput")
+            Array.from(tagInput).forEach(element => {
                 element.addEventListener('input', updateTagFilter)
             })
+            readtags();
         }
     })
 }
@@ -208,13 +210,31 @@ function submitlog()
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/addlog", true);
   xhr.setRequestHeader('Content-Type', 'application/json');
+  var content = document.getElementById("content-input").value;
+  var tags = document.getElementById("tag-input").value.split(",");
+  if(content === "" || (tags.length===1&& tags[0]==="")){
+      alert('Please fill out all fields');
+  }
   var payload = JSON.stringify({
-    content : document.getElementById("content-input").value,
-    tags : document.getElementById("tag-input").value.split(","),
+    content : content,
+    tags : tags,
     user : "Bob"
   })
   document.getElementById("tag-input").value = "";
   document.getElementById("content-input").value = "";
   console.log(payload);
   xhr.send(payload)
+}
+
+function readtags()
+{
+    let dropdown = document.getElementById('tag-select');
+    tags.map((tag) =>{
+        var name = tag.charAt(0).toUpperCase() + tag.slice(1);
+        option = document.createElement('option');
+        option.value = name;
+        const content = document.createTextNode(name);
+        option.appendChild(content);
+        dropdown.add(option);
+    })
 }

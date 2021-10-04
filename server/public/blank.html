@@ -21,7 +21,7 @@
       </div>
     </div>
   </nav>
-  <div class="row" style="min-height: 500px; max-height: 500px; max-width: 1935px">
+  <div class="row" style="min-height: 556px; max-width: 1935px">
     <div class="col-3 bg-info border-right border-dark" style="padding-top: 15px; min-width: 480px; max-width: 480px">
       <div class="container">
         <h5>Filters</h5>
@@ -33,12 +33,12 @@
           </div>
         </nav>
         <div class="tab-content overflow-auto" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 406px">
+          <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" style="max-height: 440px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 406px">
+          <div class="tab-pane fade" id="nav-group" role="tabpanel" aria-labelledby="nav-group-tab" style="max-height: 440px">
             <div class="spinner-border" role="status" style="position: absolute; top: 250px; left: 225px">
               <span class="sr-only">Loading...</span>
             </div>
@@ -62,19 +62,19 @@
     </div>
   </div>
 
-  <div class="row" style="max-width: 1935px;">
-    <div class="col" style="max-width: 450px;">
-      <iframe id="streamFrame" width="420" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent;"></iframe>
+  <div class="row" style="max-width: 1935px; height:270px;">
+    <div class="col" style="max-width: 480px; padding:0">
+      <iframe id="streamFrame" width="480" height="270" src="https://ustream.tv/embed/9408562" scrolling="no" frameborder="0" style="border: 0 none transparent; "></iframe>
     </div>
-    <div class="col" style="max-width: 1450px;">
+    <div class="col" style="max-width: 1485px; padding: 0px;">
       <div id="console-form" >
-        <form enctype="multipart/form-data" id = "form">
-            <label for="content">Content:</label><br>
-            <textarea id="content-input" class="bg-secondary" cols = "40" rows = "2" style="border: none; resize: none; width: 100%; color:white;"></textarea><br>
-            <label for="tags">Tags:</label><br>
-            <input type="text" class="bg-secondary" id="tag-input" name="tags" style="color: white;"><br><br>
-            <input type="file" name="theFile" id="file" multiple/>
-            <input type="button" class="btn btn-secondary" value="Submit Log" id="submitbutton" onclick="submitlog()" />
+        <form enctype="multipart/form-data" class="bg-info" id = "form" style="padding: 10px 15px; width: 100%; vertical-align: middle; position:absolute; bottom: 6px;">
+          <select id="tag-select" name="tags" class="bg-secondary" placeholder="Category" style="border: none; margin: 2px; padding: 10px; color: white; vertical-align: middle;width: 12%;">
+            <option value = "" selected disabled hidden style="color: grey">Category</option>
+          </select>
+          <textarea id="content-input" class="bg-secondary" cols = "40" rows = "2" style="border: none; resize: none; width:79%; color:white; vertical-align: middle; margin: 2px;" placeholder="Content"></textarea>
+          <input type="button" class="btn btn-secondary" value="Submit Log" id="submitbutton" style="margin: 2px;" onclick="submitlog()"/><br>
+
         </form>
       </div>
     </div>
