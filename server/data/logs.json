@@ -45,7 +45,7 @@
   },
   {
     "user": "Niklas B",
-    "content": "Radio Failed",
+    "content": "(Critical) Radio Failed",
     "timestamp": "2021-10-03 15:11:26",
     "tags": [
       "communications",
